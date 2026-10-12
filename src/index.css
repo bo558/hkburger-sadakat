@@ -25,8 +25,9 @@
   --font-sans: var(--brand-font-sans);
 
   --animate-stamp: stamp 0.55s cubic-bezier(0.2, 1.6, 0.4, 1) both;
-  --animate-rise: rise 0.3s ease-out both;
-  --animate-pop: pop 0.45s cubic-bezier(0.2, 1.4, 0.4, 1) both;
+  /* rise/pop: "backwards" — "both" bitişte transform'u kalıcı tutar ve içerideki "fixed" pencereler ekrana değil kapsayıcıya göre konumlanır */
+  --animate-rise: rise 0.3s ease-out backwards;
+  --animate-pop: pop 0.45s cubic-bezier(0.2, 1.4, 0.4, 1) backwards;
 }
 
 /* ---------- Tipografi ölçeği (önceki küçültmeler korunur) ----------
@@ -68,11 +69,11 @@
 }
 @keyframes rise {
   from { transform: translateY(8px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+  to { transform: none; opacity: 1; }
 }
 @keyframes pop {
   from { transform: scale(0.7); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
+  to { transform: none; opacity: 1; }
 }
 @keyframes spin-slow { to { transform: rotate(360deg); } }
 @keyframes scanline {

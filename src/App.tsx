@@ -16,17 +16,23 @@ export default function App() {
   );
 }
 
-/** Tüm ekranlarda görünen demo uyarısı. Yüksekliği --demo-bar değişkeniyle düzende hesaba katılır. */
+/**
+ * Tüm ekranlarda görünen demo uyarısı. Yüksekliği --demo-bar değişkeniyle düzende hesaba katılır.
+ * "fixed" + aynı yükseklikte boşluk: "sticky" #root yüksekliğini (bir ekran) aşan kaydırmalarda kayboluyordu.
+ */
 function DemoBar() {
   return (
-    <div
-      role="note"
-      className="sticky top-0 z-[90] flex h-[var(--demo-bar)] items-center justify-center gap-2 bg-cream px-3 text-center text-[10.5px] font-semibold leading-tight text-ink sm:text-[11px]"
-    >
-      <span className="rounded bg-hk px-1.5 py-px tracking-[0.12em] text-ink">DEMO</span>
-      <span className="min-w-0 truncate sm:hidden">{brand.copy.demoBarShort}</span>
-      <span className="hidden min-w-0 truncate sm:inline">{brand.copy.demoBarLong}</span>
-    </div>
+    <>
+      <div aria-hidden className="h-[var(--demo-bar)]" />
+      <div
+        role="note"
+        className="fixed inset-x-0 top-0 z-[90] flex h-[var(--demo-bar)] items-center justify-center gap-2 bg-cream px-3 text-center text-[10.5px] font-semibold leading-tight text-ink sm:text-[11px]"
+      >
+        <span className="rounded bg-hk px-1.5 py-px tracking-[0.12em] text-ink">DEMO</span>
+        <span className="min-w-0 truncate sm:hidden">{brand.copy.demoBarShort}</span>
+        <span className="hidden min-w-0 truncate sm:inline">{brand.copy.demoBarLong}</span>
+      </div>
+    </>
   );
 }
 
