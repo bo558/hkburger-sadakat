@@ -1,0 +1,17 @@
+node_modules
+dist
+dist-*
+*.log
+.env
+.env.*
+*.local
+.vite
+coverage
+test-results
+*.tmp
+desktop.ini
+Thumbs.db
+.DS_Store
+.vscode/*
+!.vscode/extensions.json
+.idea
