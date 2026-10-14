@@ -1,5 +1,4 @@
 import { createContext, useCallback, useContext, useEffect, useRef, useState, type ReactNode } from "react";
-import { brand } from "@brand";
 import { buildSeed, DEMO_CUSTOMER_INDEX, SEED_VERSION } from "../data/seed";
 import type { AppState } from "../data/types";
 
@@ -8,7 +7,7 @@ import type { AppState } from "../data/types";
  * Müşteri uygulaması ve işletme paneli farklı sekmelerde açılsa bile
  * "storage" olayı ile senkron kalır. Gerçek veritabanı bağlantısı yoktur.
  */
-const KEY = brand.storageKey; // markaya özel: farklı markaların demoları birbirini etkilemez
+const KEY = "hkburger-sadakat-demo";
 
 function load(): AppState {
   try {
